@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Student} from './model/student';
+import {Observable} from 'rxjs/Observable';
+import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class StudentManagementService {
@@ -29,8 +31,11 @@ export class StudentManagementService {
     nasoka: 'KNI'
   }];
 
-  public getStudents(): Student[] {
-    return this.STUDENTS;
+  public getStudents(): Observable<Student[]> {
+    return of(this.STUDENTS);
+  }
+
+  public getStudent(indeks: number): Observable<Student> {
+    return of(this.STUDENTS.find(student => student.indeks === indeks));
   }
 }
-

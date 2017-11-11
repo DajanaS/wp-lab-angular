@@ -1,13 +1,8 @@
 <h2 class="list-group-item list-group-item-action flex-column align-items-start">Students List</h2>
 <ul class="nav flex-col">
   <li *ngFor="let student of students" class="nav-item">
-    <a (click)="showStudent(student)"
-       class="nav-link"
-       [class.active]="currentStdent === student">
-      {{student.ime}} {{student.prezime}}
+    <a routerLink="/details/{{student.indeks}}"
+       class="nav-link">{{student.ime}} {{student.prezime}}
     </a>
   </li>
 </ul>
-
-<app-student-details *ngIf="currentStudent!=undefined"
-                     [student]="currentStudent"></app-student-details>

@@ -10,18 +10,16 @@ import {StudentManagementService} from '../student-management.service';
 export class StudentListComponent implements OnInit {
 
   public students: Student[];
-  public currentStudent: Student;
 
   constructor(private studentService: StudentManagementService) {
-
   }
 
   ngOnInit(): void {
-    this.students = this.studentService.getStudents();
+    this.getStudents();
   }
 
-  showStudent(student: Student) {
-    this.currentStudent = student;
+  getStudents(): void {
+    this.studentService.getStudents().subscribe(students => this.students = students);
   }
-  
+
 }
