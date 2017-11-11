@@ -1,10 +1,12 @@
 <div *ngIf="student">
   <h2 class="list-group-item list-group-item-action flex-column align-items-start">{{student.indeks}} details!</h2>
-  <div class="container-fluid">
+  <div class="container-fluid"><br />
     <label class="control-label">ime: </label> {{student.ime}}
   </div>
   <div class="container-fluid">
     <label class="control-label">prezime: </label> {{student.prezime}}
   </div>
-  <button (click)="goBack()">Back</button>
+  <div class="container-fluid"><br />
+    <button class="btn btn-primary btn-sm" (click)="goBack()">Back</button>
+  </div>
 </div>
