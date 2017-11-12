@@ -1,6 +1,7 @@
 <div *ngIf="student">
   <h2 class="list-group-item list-group-item-action flex-column align-items-start">Edit student {{currentIndeks}}
     details!</h2>
+  <br/>
   <form class="container-fluid" [formGroup]="studentForm">
     <div class="form-group">
       <label class="col-form-label">Ime: <input class="form-control" formControlName="ime"></label>
@@ -15,7 +16,7 @@
             class="btn btn-success">Save
     </button>&nbsp;
     <button type="reset" (click)="revert()" [disabled]="studentForm.pristine" class="btn btn-danger">Reset</button>
-    <br/><br />
+    <br/><br/>
     <button type="button" class="btn btn-primary btn-sm" (click)="goBack()">Back</button>
   </form>
 </div>
