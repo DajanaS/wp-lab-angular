@@ -39,7 +39,7 @@
         Nasokata mora da e edna od navedenite (KNI, IKI, ASI, MT, PET, KNIA), napishana so site golemi bukvi.
       </div>
     </div>
-    <button type="submit" (click)="onSubmit()" routerLink="/list" [disabled]="studentForm.pristine"
+    <button type="submit" (click)="onSubmit()" routerLink="/list" [disabled]="studentForm.invalid"
             class="btn btn-success">Save
     </button>&nbsp;
     <button type="reset" (click)="revert()" [disabled]="studentForm.pristine" class="btn btn-danger">Reset</button>
