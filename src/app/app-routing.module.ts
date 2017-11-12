@@ -6,7 +6,8 @@ import {StudentDetailsComponent} from './student-details/student-details.compone
 const routes: Routes = [
   {path: '', redirectTo: '/list', pathMatch: 'full'},
   {path: 'list', component: StudentListComponent},
-  {path: 'details/:index', component: StudentDetailsComponent}
+  {path: 'details/:index', component: StudentDetailsComponent},
+  {path: 'details', redirectTo: '/list', pathMatch: 'full'}
 ];
 
 @NgModule({

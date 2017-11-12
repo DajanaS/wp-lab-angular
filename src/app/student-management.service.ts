@@ -38,4 +38,18 @@ export class StudentManagementService {
   public getStudent(indeks: number): Observable<Student> {
     return of(this.STUDENTS.find(student => student.indeks === indeks));
   }
+
+  public updateStudent(student: Student): Observable<Student> {
+    const oldStudent = this.STUDENTS.find(s => s.indeks === student.indeks);
+    const newStudent = Object.assign(oldStudent, student);
+    return of(newStudent);
+  }
+
+  public existsIndeks(indeks: number): boolean {
+    const student = this.STUDENTS.find(s => s.indeks === indeks);
+    if (student == null) {
+      return false;
+    }
+    return true;
+  }
 }
