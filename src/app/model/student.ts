@@ -3,4 +3,11 @@ export class Student {
   public prezime: string;
   public indeks: number;
   public nasoka: string;
+
+  constructor(ime, prezime, indeks, nasoka) {
+    this.ime = ime;
+    this.prezime = prezime;
+    this.indeks = indeks;
+    this.nasoka = nasoka;
+  }
 }

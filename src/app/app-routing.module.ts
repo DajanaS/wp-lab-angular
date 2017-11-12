@@ -8,11 +8,11 @@ import {StudentAddComponent} from './student-add/student-add.component';
 const routes: Routes = [
   {path: '', redirectTo: '/list', pathMatch: 'full'},
   {path: 'list', component: StudentListComponent},
+  {path: 'new', component: StudentAddComponent},
   {path: 'details/:index', component: StudentDetailsComponent},
   {path: 'details', redirectTo: '/list', pathMatch: 'full'},
   {path: 'edit/:index', component: StudentEditComponent},
-  {path: 'edit', redirectTo: '/list', pathMatch: 'full'},
-  {path: 'new', component: StudentAddComponent}
+  {path: 'edit', redirectTo: '/list', pathMatch: 'full'}
 ];
 
 @NgModule({

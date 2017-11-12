@@ -6,30 +6,15 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class StudentManagementService {
 
+  private STUDENTS = [
+    new Student('Dajana', 'Stojchevska', 141178, 'KNI'),
+    new Student('Student', 'Prezime', 145605, 'KNIA'),
+    new Student('Ime', 'Student', 143308, 'PET'),
+    new Student('St.', 'Pr.', 145329, 'IKI'),
+  ];
+
   constructor() {
   }
-
-  private STUDENTS = [{
-    ime: 'Dajana',
-    prezime: 'Stojchevska',
-    indeks: 141178,
-    nasoka: 'KNI'
-  }, {
-    ime: 'Ime na student',
-    prezime: 'Prezime na student',
-    indeks: 151076,
-    nasoka: 'KNI'
-  }, {
-    ime: 'Student I',
-    prezime: 'Prezime I',
-    indeks: 160198,
-    nasoka: 'KNI'
-  }, {
-    ime: 'Student II',
-    prezime: 'Prezime II',
-    indeks: 175108,
-    nasoka: 'KNI'
-  }];
 
   public getStudents(): Observable<Student[]> {
     return of(this.STUDENTS);
@@ -43,6 +28,14 @@ export class StudentManagementService {
     const oldStudent = this.STUDENTS.find(s => s.indeks === student.indeks);
     const newStudent = Object.assign(oldStudent, student);
     return of(newStudent);
+  }
+
+  public addStudent(student: Student): Observable<Student> {
+    if (!this.existsIndeks(student.indeks)) {
+      this.STUDENTS.push(student);
+      return of(student);
+    }
+    return null;
   }
 
   public existsIndeks(indeks: number): boolean {
