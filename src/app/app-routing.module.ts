@@ -2,12 +2,15 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {StudentListComponent} from './student-list/student-list.component';
 import {StudentDetailsComponent} from './student-details/student-details.component';
+import {StudentEditComponent} from './student-edit/student-edit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/list', pathMatch: 'full'},
   {path: 'list', component: StudentListComponent},
   {path: 'details/:index', component: StudentDetailsComponent},
-  {path: 'details', redirectTo: '/list', pathMatch: 'full'}
+  {path: 'details', redirectTo: '/list', pathMatch: 'full'},
+  {path: 'edit/:index', component: StudentEditComponent},
+  {path: 'edit', redirectTo: '/list', pathMatch: 'full'}
 ];
 
 @NgModule({

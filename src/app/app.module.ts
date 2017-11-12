@@ -7,12 +7,14 @@ import {StudentDetailsComponent} from './student-details/student-details.compone
 import {StudentManagementService} from './student-management.service';
 import {StudentListComponent} from './student-list/student-list.component';
 import {AppRoutingModule} from './/app-routing.module';
+import { StudentEditComponent } from './student-edit/student-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentDetailsComponent,
-    StudentListComponent
+    StudentListComponent,
+    StudentEditComponent
   ],
   imports: [
     BrowserModule,
