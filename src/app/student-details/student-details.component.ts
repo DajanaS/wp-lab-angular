@@ -14,6 +14,7 @@ export class StudentDetailsComponent implements OnInit {
 
   @Input('student')
   public student: Student;
+  currentIndeks = -1;
 
   constructor(private route: ActivatedRoute,
               private studentService: StudentManagementService,
@@ -22,11 +23,15 @@ export class StudentDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getStudent();
+    if (!this.studentService.existsIndeks(this.currentIndeks)) {
+      this.location.back();
+    }
   }
 
   getStudent(): void {
     const index = +this.route.snapshot.paramMap.get('index');
     this.studentService.getStudent(index).subscribe(student => this.student = student);
+    this.currentIndeks = +this.route.snapshot.paramMap.get('index');
   }
 
   goBack(): void {
