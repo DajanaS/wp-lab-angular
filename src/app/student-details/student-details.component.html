@@ -7,7 +7,7 @@
     <label class="control-label">prezime: </label> {{student.prezime}}
   </div>
   <div class="container-fluid">
-    <label class="control-label">indeks: </label> {{student.indeks}}
+    <label class="control-label">nasoka: </label> {{student.nasoka}}
   </div>
   <div class="container-fluid"><br/>
     <button type="button" routerLink="/edit/{{student.indeks}}" class="btn btn-warning">Uredi student</button>
@@ -16,7 +16,3 @@
     <button type="button" class="btn btn-primary btn-sm" (click)="goBack()">Back</button>
   </div>
 </div>
-
-<!-- <p>Form value: {{ studentForm.value | json}}</p>
-<p>Form status: {{ studentForm.status | json }}</p>
-<p>Ime na studentot: {{studentForm.get('ime').value}}</p> -->

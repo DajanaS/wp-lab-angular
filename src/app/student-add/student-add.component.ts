@@ -25,10 +25,10 @@ export class StudentAddComponent implements OnInit {
 
   createForm() {
     this.studentForm = this.fb.group({
-      ime: ['', Validators.required],
-      prezime: '',
-      indeks: '',
-      nasoka: ''
+      ime: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      prezime: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      indeks: ['', [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
+      nasoka: ['', [Validators.pattern(/^(KNI|IKI|ASI|MT|PET|KNIA)$/)]]
     });
   }
 
@@ -53,5 +53,21 @@ export class StudentAddComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  get ime() {
+    return this.studentForm.get('ime');
+  }
+
+  get prezime() {
+    return this.studentForm.get('prezime');
+  }
+
+  get indeks() {
+    return this.studentForm.get('indeks');
+  }
+
+  get nasoka() {
+    return this.studentForm.get('nasoka');
   }
 }

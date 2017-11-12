@@ -2,16 +2,51 @@
 <br/>
 <form class="container-fluid" [formGroup]="studentForm">
   <div class="form-group">
-    <label class="col-form-label">Ime: <input class="form-control" formControlName="ime"></label>
+    <label class="col-form-label">Ime: <input class="form-control" formControlName="ime" required></label>
+  </div>
+  <div *ngIf="ime.invalid && (ime.dirty || ime.touched)" class="alert alert-danger">
+    <div *ngIf="ime.errors.required">
+      Imeto e zadolzhitelno.
+    </div>
+    <div *ngIf="ime.errors.minlength">
+      Imeto mora da e pomegju 2 i 30 karakteri.
+    </div>
+    <div *ngIf="ime.errors.maxlength">
+      Imeto mora da e pomegju 2 i 30 karakteri.
+    </div>
   </div>
   <div class="form-group">
-    <label class="col-form-label">Prezime: <input class="form-control" formControlName="prezime"></label>
+    <label class="col-form-label">Prezime: <input class="form-control" formControlName="prezime" required></label>
+  </div>
+  <div *ngIf="prezime.invalid && (prezime.dirty || prezime.touched)" class="alert alert-danger">
+    <div *ngIf="prezime.errors.required">
+      Prezimeto e zadolzhitelno.
+    </div>
+    <div *ngIf="prezime.errors.minlength">
+      Prezimeto mora da e pomegju 2 i 30 karakteri.
+    </div>
+    <div *ngIf="prezime.errors.maxlength">
+      Prezimeto mora da e pomegju 2 i 30 karakteri.
+    </div>
   </div>
   <div class="form-group">
-    <label class="col-form-label">Indeks: <input class="form-control" formControlName="indeks"></label>
+    <label class="col-form-label">Indeks: <input class="form-control" formControlName="indeks" required></label>
+  </div>
+  <div *ngIf="indeks.invalid && (indeks.dirty || indeks.touched)" class="alert alert-danger">
+    <div *ngIf="indeks.errors.required">
+      Indeksot e zadolzhitelen.
+    </div>
+    <div *ngIf="indeks.errors.pattern">
+      Indeksot mora da e sostaven od tochno 6 cifri 0-9.
+    </div>
   </div>
   <div class="form-group">
     <label class="col-form-label">Nasoka: <input class="form-control" formControlName="nasoka"></label>
+  </div>
+  <div *ngIf="nasoka.invalid && (nasoka.dirty || nasoka.touched)" class="alert alert-danger">
+    <div *ngIf="nasoka.errors.pattern">
+      Nasokata mora da e edna od navedenite (KNI, IKI, ASI, MT, PET, KNIA), napishana so site golemi bukvi.
+    </div>
   </div>
   <button type="submit" (click)="onSubmit()" routerLink="/list" [disabled]="studentForm.pristine"
           class="btn btn-success">Save

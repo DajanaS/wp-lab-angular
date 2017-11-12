@@ -36,17 +36,15 @@ export class StudentEditComponent implements OnInit, OnChanges {
     this.studentForm.reset({ // same as reset() then: this.studentForm.setValue({
       ime: this.student.ime,
       prezime: this.student.prezime,
-      indeks: this.student.indeks,
       nasoka: this.student.nasoka
     });
   }
 
   createForm() {
     this.studentForm = this.fb.group({
-      ime: ['', Validators.required],
-      prezime: '',
-      indeks: '',
-      nasoka: ''
+      ime: ['', [Validators.required, Validators.minLength(2), Validators.max(30)]],
+      prezime: ['', [Validators.required, Validators.minLength(2), Validators.max(30)]],
+      nasoka: ['', [Validators.pattern(/^(KNI|IKI|ASI|MT|PET|KNIA)$/)]]
     });
   }
 
@@ -81,5 +79,17 @@ export class StudentEditComponent implements OnInit, OnChanges {
 
   goBack(): void {
     this.location.back();
+  }
+
+  get ime() {
+    return this.studentForm.get('ime');
+  }
+
+  get prezime() {
+    return this.studentForm.get('prezime');
+  }
+
+  get nasoka() {
+    return this.studentForm.get('nasoka');
   }
 }
